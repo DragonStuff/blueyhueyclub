@@ -72,23 +72,14 @@
        		<h2>List of cool peeps:</h2>
        		<ul>
        		  <li>@blueyhuey <a href="https://www.twitch.tv/blueyhuey">https://www.twitch.tv/blueyhuey</a></li>
+       		  <div id="online-bluey"><a href="https://www.twitch.tv/blueyhuey">blueyhuey is online!</a></div>
+       		  <div id="offline-bluey"><a href="https://www.twitch.tv/blueyhuey">blueyhuey is offline!</a></div>
        		  <li>@Tokidokitraveller <a href="https://www.twitch.tv/tokidokitraveller">https://www.twitch.tv/tokidokitraveller</a></li>
      		  <div id="online"><a href="https://www.twitch.tv/tokidokitraveller">TokidokiTraveller is online!</a></div>
      		  <div id="offline"><a href="https://www.twitch.tv/tokidokitraveller">TokidokiTraveller is offline!</a></div>
-     		  <script src="https://embed.twitch.tv/embed/v1.js"></script>
-     		  <script type="text/javascript">
-     		  $.getJSON('https://api.twitch.tv/kraken/streams/tokidokitraveller?client_id=759gmq52bcbbup3mcg36q4l3kzp16m', function(channel) {
-     		      if (channel["stream"] == null) { 
-     		          $("#online").hide();
-     		          $("#offline").show();
-     		  
-     		      } else {
-     		          $("#offline").hide();
-     		          $("#online").show();
-     		      }
-     		  });
-       		  </script>
        		  <li>@Mosskyn <a href="https://www.twitch.tv/mosskyn">https://www.twitch.tv/mosskyn</a></li>
+       		  <div id="online-mosskyn"><a href="https://www.twitch.tv/mosskyn">mosskyn is online!</a></div>
+    		  <div id="offline-mosskyn"><a href="https://www.twitch.tv/mosskyn">mosskyn is offline!</a></div>
        		  <li>@LarryLactose <a href="https://www.twitch.tv/larrylactose">https://www.twitch.tv/larrylactose</a></li>
        		  <li>@HannahHatake <a href="https://www.twitch.tv/hannahhatake">https://www.twitch.tv/hannahhatake</a></li>
        		  <li>@Ashleyditchhh <a href="https://www.twitch.tv/ashleyditchhh">https://www.twitch.tv/ashleyditchhh</a></li>
@@ -101,5 +92,36 @@
 	    <footer>
 	    	<p align="center">Made by 0xdragon</p>
 	    </footer>
+	    <!-- Extra JS -->
+		<script src="https://embed.twitch.tv/embed/v1.js"></script>
+		<script type="text/javascript">
+		$.getJSON('https://api.twitch.tv/kraken/streams/blueyhuey?client_id=759gmq52bcbbup3mcg36q4l3kzp16m', function(channel) {
+			if (channel["stream"] == null) { 
+				$("#online-bluey").hide();
+				$("#offline-bluey").show();
+			} else {
+				$("#offline-bluey").hide();
+				$("#online-bluey").show();
+			}
+		});
+		$.getJSON('https://api.twitch.tv/kraken/streams/tokidokitraveller?client_id=759gmq52bcbbup3mcg36q4l3kzp16m', function(channel) {
+			if (channel["stream"] == null) { 
+				$("#online").hide();
+				$("#offline").show();
+			} else {
+				$("#offline").hide();
+				$("#online").show();
+			}
+		});
+		$.getJSON('https://api.twitch.tv/kraken/streams/mosskyn?client_id=759gmq52bcbbup3mcg36q4l3kzp16m', function(channel) {
+			if (channel["stream"] == null) { 
+				$("#online-mosskyn").hide();
+				$("#offline-mosskyn").show();
+			} else {
+				$("#offline-mosskyn").hide();
+				$("#online-mosskyn").show();
+			}
+		});
+		</script>
 	</body>
 <html>
