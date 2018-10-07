@@ -12,20 +12,6 @@
 	</head>
 	<body>
 	<body>
-		<script>
-		$.ajax({
-		  url: 'https://api.twitch.tv/kraken/streams/tokidokitraveller',
-		  dataType: 'jsonp',
-		  type: 'get',
-		  success: function(data) {
-		    if(typeof data.stream === 'object') {
-		      document.getelementbyID('test').style.width = '160px';
-		    } else {
-		      document.getelementbyID('test').style.width = '0px';
-		    }
-		  }
-		});
-		</script>
 	    <div class="container">
 	
 	      <!-- Static navbar -->
@@ -86,15 +72,21 @@
        		<h2>List of cool peeps:</h2>
        		<ul>
        		  <li>@blueyhuey <a href="https://www.twitch.tv/blueyhuey">https://www.twitch.tv/blueyhuey</a></li>
-       		  <li>@TokidokiTraveller <a href="https://www.twitch.tv/tokidokitraveller">https://www.twitch.tv/tokidokitraveller</a></li>
-     		  <div id="twitch-embed"></div>
+       		  <li>@Tokidokitraveller <a href="https://www.twitch.tv/tokidokitraveller">https://www.twitch.tv/tokidokitraveller</a></li>
+     		  <div id="online"><a href="https://www.twitch.tv/tokidokitraveller">TokidokiTraveller is online!</a></div>
+     		  <div id="offline"><a href="https://www.twitch.tv/tokidokitraveller">TokidokiTraveller is offline!</a></div>
      		  <script src="https://embed.twitch.tv/embed/v1.js"></script>
      		  <script type="text/javascript">
-     		  new Twitch.Embed("twitch-embed", {
-     		      width: 854,
-     		      height: 480,
-       		      channel: "monstercat"
-       		  });
+     		  $.getJSON('https://api.twitch.tv/kraken/streams/tokidokitraveller?client_id=759gmq52bcbbup3mcg36q4l3kzp16m', function(channel) {
+     		      if (channel["stream"] == null) { 
+     		          $("#online").hide();
+     		          $("#offline").show();
+     		  
+     		      } else {
+     		          $("#offline").hide();
+     		          $("#online").show();
+     		      }
+     		  });
        		  </script>
        		  <li>@Mosskyn <a href="https://www.twitch.tv/mosskyn">https://www.twitch.tv/mosskyn</a></li>
        		  <li>@LarryLactose <a href="https://www.twitch.tv/larrylactose">https://www.twitch.tv/larrylactose</a></li>
