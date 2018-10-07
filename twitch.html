@@ -7,11 +7,25 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 		
 		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	</head>
 	<body>
 	<body>
-	
+		<script>
+		$.ajax({
+		  url: 'https://api.twitch.tv/kraken/streams/tokidokitraveller',
+		  dataType: 'jsonp',
+		  type: 'get',
+		  success: function(data) {
+		    if(typeof data.stream === 'object') {
+		      document.getelementbyID('test').style.width = '160px';
+		    } else {
+		      document.getelementbyID('test').style.width = '0px';
+		    }
+		  }
+		});
+		</script>
 	    <div class="container">
 	
 	      <!-- Static navbar -->
@@ -73,6 +87,15 @@
        		<ul>
        		  <li>@blueyhuey <a href="https://www.twitch.tv/blueyhuey">https://www.twitch.tv/blueyhuey</a></li>
        		  <li>@TokidokiTraveller <a href="https://www.twitch.tv/tokidokitraveller">https://www.twitch.tv/tokidokitraveller</a></li>
+     		  <div id="twitch-embed"></div>
+     		  <script src="https://embed.twitch.tv/embed/v1.js"></script>
+     		  <script type="text/javascript">
+     		  new Twitch.Embed("twitch-embed", {
+     		      width: 854,
+     		      height: 480,
+       		      channel: "monstercat"
+       		  });
+       		  </script>
        		  <li>@Mosskyn <a href="https://www.twitch.tv/mosskyn">https://www.twitch.tv/mosskyn</a></li>
        		  <li>@LarryLactose <a href="https://www.twitch.tv/larrylactose">https://www.twitch.tv/larrylactose</a></li>
        		  <li>@HannahHatake <a href="https://www.twitch.tv/hannahhatake">https://www.twitch.tv/hannahhatake</a></li>
